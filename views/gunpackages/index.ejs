@@ -1,0 +1,49 @@
+<main id="content" class="isotope-wrapper">
+	<header class="page-header center x-large image-background gunpackages-img-parallax parallax no-padding">
+	<div class="mask opacity-5">
+
+		<div class="container v-align-center">
+			<div class="row">
+				<div class="col-md-12 text-light">
+					<div class="header-6-header-space"></div>
+					<h1 class="x-large block">GUN PACKAGES</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+	<section class="pt pb-medium rollover effect-zoe dark-main-color">
+		<div class="container">
+			<% if(webLinkGroup && webLinkGroup.WebLinks.length > 0) { %>
+				<% for(var w = 0; w < webLinkGroup.WebLinks.length; w++) { %>
+					<% var wl = webLinkGroup.WebLinks[w]; %>
+					<div class="row mb-lg">
+						<div class="mb-md col-xs-12 gunpackage-backgroundimage" style="background-image:url(http://cp.briangreenedev.com/Content/WebLinkImages/<%= wl.imageName %>)">
+						</div>
+						<div class="col-md-7">
+							<h1 class="large"><%= wl.webLinkDisplayedName %></h1>
+							<p>
+								<%= wl.description %>
+							</p>
+						</div>
+						<div class="col-md-5">
+							<h1 style="color:#1dbf5f" class="text-right"><%= wl.price1Formatted %></h3>
+							<table class="table gunpackage">
+								<tbody>
+								<% for(var i = 0; i < wl.specs.length; i++) { %>
+									<tr>
+										<td><strong><%= wl.specs[i].key %></strong></td>
+										<td><%= wl.specs[i].value %></td>
+									</tr>
+								<% } %>	
+								</tbody>
+							</table>
+						</div>
+					</div>
+				<% } %>
+			<% } else { %>
+				<h2 class="text-center" style="color:#cccccc">There are no gun packages available at this time.</h2>
+			<% } %>
+		</div>
+	</section>
+</main>

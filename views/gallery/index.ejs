@@ -1,0 +1,48 @@
+<main id="content" class="isotope-wrapper">
+
+
+	<section class="pt pb-medium rollover effect-zoe dark-main-color mountain">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+					<div id="filters" class="btn-group mt mb">
+						<button type="button" class="btn btn-default active" data-filter="*">All</button>
+						<button type="button" class="btn btn-default" data-filter=".rifles">Rifles</button>
+						<button type="button" class="btn btn-default" data-filter=".target">Target Shooting</button>
+						<button type="button" class="btn btn-default" data-filter=".hunting">Hunting</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="row isotope-filter">
+
+				<% for(var i = 0; i < records.length; i++) { %>
+				
+					<!-- item -->
+					<article class="mb col-md-4 <%= records[i].groups %>">
+						<figure>
+							<img src="<%= records[i].primaryImageSrc %>" alt="Blue Mountain Precision - <%= records[i].id %>" class="full-width">
+							<figcaption>
+								<h4><%= records[i].id %></h4>
+								<div class="rollover-content">
+									<p class="description" style="font-size:.8em; color:white">
+										<% for(var j = 0; j < records[i].features.length; j++) { %>
+											- <%= records[i].features[j] %><br/>
+										<% } %>
+									</p>
+									<p class="icon-links">
+										<a href="<%= records[i].primaryImageSrc %>" title="zoom" class="tips image-link" data-placement="left">
+											<span class="icon-glyph-16"></span>
+										</a>
+									</p>
+								</div>
+							</figcaption>
+						</figure>
+					</article>
+					<!-- / item -->
+			
+				<% } %>
+			</div>
+		</div>
+	</section>
+</main>

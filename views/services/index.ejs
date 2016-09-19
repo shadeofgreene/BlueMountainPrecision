@@ -1,0 +1,55 @@
+<header class="page-header center x-large image-background parallax services-img-parallax image-22 no-padding">
+	<div class="mask opacity-5">
+
+		<div class="container v-align-center">
+			<div class="row">
+				<div class="col-md-12 text-light">
+					<div class="header-6-header-space"></div>
+					<h1 class="x-large block">SERVICES</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<section class="pt pb-medium rollover effect-zoe dark-main-color">
+	<div class="container">
+		<div class="row">
+		<% if(webLinkGroups && webLinkGroups.length > 0) { %>
+			<% for(var i = 0; i < webLinkGroups.length; i++) { %>
+			<div class="col-md-6 mb-xl">
+				<% var wlg = webLinkGroups[i]; %>
+
+					<div class="row">
+						<h1 class="text-center"><%= wlg.WebLinkGroup.groupDisplayedName %></h1>
+					</div>
+
+					<% if(wlg.WebLinks.length > 0) { %>
+						<div class="row">
+							<% for(var j = 0; j < wlg.WebLinks.length > 0; j++) { %>
+								<% var wl = wlg.WebLinks[j]; %>
+									<div class="col-sm-6 pb" style="background-color: #223b52; height: 390px;border: 5px solid #0f2132;">
+										<div class="box-icon animated-invisible animated fadeInLeft animated-visible" data-nekoanim="fadeInLeft" data-nekodelay="100" style="-webkit-animation-delay: 100ms;">
+											<div class="mb-sm col-xs-10 col-xs-offset-1 services-backgroundimage" style="background-image:url(http://cp.briangreenedev.com/Content/WebLinkImages/<%= wl.imageName %>)">
+											</div>
+											<h3 style="margin-top:"><%= wl.webLinkDisplayedName %> </h3>
+											<p style="margin-bottom:10px"><span class="label label-default" style="font-size:1em"><%= wl.price1Formatted %> <%= typeof wl.info1 !== 'undefined' && wl.info1 ? '/' + wl.info1 : '' %></span></p>
+											<p class="small">
+												<%= wl.description %>
+											</p>
+										</div>
+									</div>
+									<% } %>
+						</div>
+						<% } else { %>
+							<h3 class="text-center" style="color:#777777">No services available for this category</h3>
+						<% } %>
+				</div>
+
+			<% } %>
+		<% } else { %>
+			<h2 class="text-center" style="color:#cccccc">There are no services available at this time</h2>
+		<% } %>
+			</div>
+	</div>
+</section>
